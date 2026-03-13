@@ -1,295 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html> 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="favicon.png">
-<title>EXPLODING SYS</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
---bg:#0a1a0d;
---bg2:#0d200f;
---green:#1a3d1f;
---green-bright:#2d6b35;
---text:#e8e8e0;
---text-dim:#a0a098;
---accent:#7b68ee;
-}
-
-html{scroll-behavior:smooth}
-
-body{
-background:var(--bg);
-color:var(--text);
-font-family:'Inter',sans-serif;
-min-height:100vh;
-overflow-x:hidden;
-}
-
-.grid-bg{
-position:fixed;
-inset:0;
-background-image:
-  linear-gradient(rgba(45,107,53,0.07) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(45,107,53,0.07) 1px, transparent 1px);
-background-size:80px 80px;
-pointer-events:none;
-z-index:0;
-}
-
-nav{
-position:fixed;
-top:12px;
-left:50%;
-transform:translateX(-50%);
-width:calc(100% - 48px);
-max-width:1400px;
-background:var(--green);
-border-radius:50px;
-padding:14px 32px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-z-index:100;
-}
-
-nav .logo{
-font-family:'Bebas Neue',sans-serif;
-font-size:1.1rem;
-letter-spacing:0.1em;
-color:var(--text);
-cursor:pointer;
-}
-
-nav ul{
-list-style:none;
-display:flex;
-gap:32px;
-align-items:center;
-}
-
-nav ul li a{
-text-decoration:none;
-color:var(--text);
-font-size:0.78rem;
-font-weight:600;
-letter-spacing:0.12em;
-text-transform:uppercase;
-transition:color 0.2s;
-}
-
-nav ul li a:hover{color:#afffb8}
-
-.page{
-min-height:100vh;
-display:none;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:100px 40px 40px;
-position:relative;
-z-index:1;
-}
-
-.page.active{display:flex}
-
-#home{
-align-items:flex-start;
-padding-left:clamp(24px,8vw,160px);
-}
-
-.hero-title{
-font-family:'Bebas Neue',sans-serif;
-font-size:clamp(5rem,15vw,12rem);
-line-height:0.9;
-color:var(--text);
-letter-spacing:0.02em;
-}
-
-.section-title{
-font-family:'Bebas Neue',sans-serif;
-font-size:clamp(3.5rem,10vw,8rem);
-color:var(--text);
-letter-spacing:0.02em;
-text-align:center;
-border:2px solid var(--accent);
-padding:16px 40px;
-width:100%;
-max-width:1100px;
-margin-bottom:40px;
-}
-
-.section-title.no-border{
-border:none;
-}
-
-.body-text{
-font-size:clamp(1rem,2vw,1.35rem);
-line-height:1.7;
-text-align:center;
-max-width:860px;
-font-weight:600;
-}
-
-.boundaries-content{
-max-width:860px;
-width:100%;
-text-align:center;
-}
-
-.boundaries-content h2{
-font-size:1.1rem;
-font-weight:700;
-letter-spacing:0.1em;
-margin:24px 0 10px;
-color:#afffb8;
-}
-
-.boundaries-content p{
-font-size:1.05rem;
-line-height:1.8;
-margin-bottom:4px;
-}
-
-.boundaries-content .dni{
-margin-top:20px;
-font-size:0.95rem;
-color:var(--text-dim);
-line-height:1.7;
-}
-
-.socials-grid{
-display:flex;
-flex-direction:column;
-gap:20px;
-width:100%;
-max-width:700px;
-margin-top:20px;
-}
-
-.social-item{
-font-family:'Bebas Neue',sans-serif;
-font-size:clamp(2rem,5vw,3.5rem);
-letter-spacing:0.05em;
-color:var(--text);
-}
-
-.copyright-text{
-font-size:clamp(1rem,2vw,1.3rem);
-line-height:1.7;
-text-align:center;
-max-width:700px;
-font-weight:600;
-}
-
-.c-btn{
-position:fixed;
-bottom:24px;
-right:24px;
-width:52px;
-height:52px;
-background:var(--green-bright);
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-z-index:200;
-font-family:'Bebas Neue',sans-serif;
-font-size:1.4rem;
-color:var(--text);
-border:none;
-transition:background 0.2s, transform 0.15s;
-}
-
-.c-btn:hover{background:#3d8b47;transform:scale(1.08)}
-
-.confessions-link{
-display:inline-block;
-margin-top:30px;
-padding:14px 36px;
-background:var(--green-bright);
-color:var(--text);
-text-decoration:none;
-font-weight:700;
-letter-spacing:0.08em;
-font-size:0.95rem;
-text-transform:uppercase;
-border-radius:4px;
-transition:background 0.2s;
-}
-
-.confessions-link:hover{background:#3d8b47}
-</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="RocketCake">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="index_html.css?h=395c4244">
 </head>
 <body>
-
-<div class="grid-bg"></div>
-
-<nav>
-  <div class="logo" onclick="showPage('home')">HOME</div>
-  <ul>
-    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSenvzlSza3V9joOnWZvgTPPnvLw4Y3veG_fzoh4j4-vDrWWdA/viewform" target="_blank">CONFESSIONS</a></li>
-    <li><a href="#" onclick="showPage('colective');return false">COLECTIVE INFO</a></li>
-    <li><a href="#" onclick="showPage('boundaries');return false">BOUNDARIES</a></li>
-    <li><a href="#" onclick="showPage('socials');return false">SOCIALS</a></li>
-  </ul>
-</nav>
-
-<div id="home" class="page active">
-  <div class="hero-title">EXPLODING SYS</div>
+<div class="textstyle1">
+<div id="container_e4bf9ac"><div id="container_e4bf9ac_padding" ><div class="textstyle1"><img src="rc_images/8339f15ff2eebcddc1e589255caca356.jpg" width="720" height="726" id="img_4146eb3e" alt="" title="" /><h1 id="heading_7d1752af"> ExplodingSys - Home<br/></h1><a href="socials" style="text-decoration:none"><div id="button_365f079f"><div class="vcenterstyle1"><div class="vcenterstyle2"><div class="textstyle2">  <span class="textstyle3">Socials</span>
 </div>
-
-<div id="colective" class="page">
-  <div class="section-title">COLECTIVE INFO</div>
-  <p class="body-text">Hello! We're an undiagnosed DID/OSDD System. we are bodily 16 years old, we are taken, we like gaming and are very fun to chat with :3 We collectively identify as Non-Binary and prefer to be called Finn/Finley! we also prefer if they/them pronouns were used. We are currently taking GCSEs! We mostly like Computer Science and Creative Media as it lets our creative mind get to work!</p>
+<div class="textstyle1"></div>
+</div></div></div></a><a href="collective-info" style="text-decoration:none"><div id="button_157c0625"><div class="vcenterstyle1"><div class="vcenterstyle2"><div class="textstyle2">  <span class="textstyle3">Collective Info</span>
 </div>
-
-<div id="boundaries" class="page">
-  <div class="section-title no-border">BOUNDAIRES</div>
-  <div class="boundaries-content">
-    <h2>DO:</h2>
-    <p>Be Kind to Us</p>
-    <p>Respect our DNI list</p>
-    <p>Respect our Boundaries</p>
-    <p>Respect whoever is fronting</p>
-    <p>Let us know if you're taking a break from messaging</p>
-    <h2>DON'T:</h2>
-    <p>Associate alters who are a fictive as their source</p>
-    <p>Fakeclaim us</p>
-    <p>Be weird (fakeclaiming, associating us with bad people)</p>
-    <p>Sexualise us</p>
-    <p>Ignore us without saying anything!</p>
-    <p class="dni">DNI List: basic criteria, dteam stans, wss, people who break boundaries, toxic shedtwt, fake claimers, endos, trump supporters, ICE supporters, AI supporters</p>
-  </div>
+<div class="textstyle1"></div>
+</div></div></div></a><a href="boundaries" style="text-decoration:none"><div id="button_4dd2eac8"><div class="vcenterstyle1"><div class="vcenterstyle2"><div class="textstyle2">  <span class="textstyle3">Boundaries</span>
 </div>
-
-<div id="socials" class="page">
-  <div class="section-title no-border">SOCIALS</div>
-  <div class="socials-grid">
-    <div class="social-item">DISCORD: explodingsys</div>
-    <div class="social-item">TUMBLR: explodingsyss1</div>
-    <div class="social-item">TIKTOK: @exploding4825</div>
-  </div>
+<div class="textstyle1"></div>
+</div></div></div></a><a href="https://docs.google.com/forms/d/e/1FAIpQLSenvzlSza3V9joOnWZvgTPPnvLw4Y3veG_fzoh4j4-vDrWWdA/viewform" style="text-decoration:none"><div id="button_6ce345d0"><div class="vcenterstyle1"><div class="vcenterstyle2"><div class="textstyle2">  <span class="textstyle3">Confessions</span>
 </div>
-
-<div id="copyright" class="page">
-  <div class="section-title no-border">COPYRIGHT</div>
-  <p class="copyright-text">This website was made in part by evelynlost (evelyn.party) and is licensed to be edited by explodingsys (explodingsys.app) if you copy or steal this website you will recive a DMCA takedown request</p>
+<div class="textstyle1"></div>
+</div></div></div></a><a href="index.html" style="text-decoration:none"><div id="button_fb45d40"><div class="vcenterstyle1"><div class="vcenterstyle2"><div class="textstyle2">  <span class="textstyle3">Home</span>
 </div>
-
-<button class="c-btn" onclick="showPage('copyright')">C</button>
-
-<script>
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-}
-</script>
-
+<div class="textstyle1"></div>
+</div></div></div></a></div>
+<div style="clear:both"></div></div></div><div id="container_49364a9"><div id="container_49364a9_padding" ><div class="textstyle1"><iframe name="IFrame1" frameBorder="0" src="https://discord.com/widget?id=1463995828845678853&theme=dark" scrolling="auto" id="iframe_26f900e2"></iframe></div>
+<div class="textstyle2"><h2 id="heading_540f65a5">  Welcome to our home page! Here you can get to know us better!<br/>  Our boundaries and all the info you need to know will be here!</h2></div>
+<div style="clear:both"></div></div></div><div id="container_5be02bc9"><div id="container_5be02bc9_padding" ><div class="textstyle2"><h1 id="heading_5c17f023">&#169; Exploding System &#8226; 2026</h1></div>
+<div style="clear:both"></div></div></div>  </div>
 </body>
 </html>
